@@ -14,7 +14,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = DB::table('projects')->paginate(10);
+        $projects = Project::with('technologies')->paginate(10);
         return response()->json($projects);
     }
 
@@ -31,7 +31,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        $project = Project::find($id);
+        $project = Project::with('technologies')->find($id);
         return response()->json($project);
     }
 
