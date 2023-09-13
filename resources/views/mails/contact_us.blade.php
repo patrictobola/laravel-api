@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1> Prova prova </h1>
+    <h1> {{ $content }} </h1>
 </body>
 
 </html>

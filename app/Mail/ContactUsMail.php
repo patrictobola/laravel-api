@@ -22,7 +22,9 @@ class ContactUsMail extends Mailable
      */
     public function __construct($sent_by, $subject, $content)
     {
-        //
+        $this->sent_by = $sent_by;
+        $this->subject = $subject;
+        $this->content = $content;
     }
 
     /**
@@ -31,7 +33,8 @@ class ContactUsMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Contact Us Mail',
+            subject: $this->subject,
+            from: $this->sent_by
         );
     }
 
@@ -42,6 +45,7 @@ class ContactUsMail extends Mailable
     {
         return new Content(
             view: '/mails/contact_us',
+            with: ['content' => $this->content]
         );
     }
 

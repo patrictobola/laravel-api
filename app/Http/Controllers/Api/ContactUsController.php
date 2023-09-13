@@ -12,7 +12,7 @@ class ContactUsController extends Controller
     public function message()
     {
         $mail = new ContactUsMail(
-            sent_by: 'polando',
+            sent_by: 'polando@sama.com',
             subject: 'Yo',
             content: 'pojnvajkvnak',
         );
