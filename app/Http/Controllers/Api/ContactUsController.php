@@ -11,7 +11,11 @@ class ContactUsController extends Controller
 {
     public function message()
     {
-        $mail = new ContactUsMail();
+        $mail = new ContactUsMail(
+            sent_by: 'polando',
+            subject: 'Yo',
+            content: 'pojnvajkvnak',
+        );
         Mail::to(env('MAIL_TO_ADDRESS'))->send($mail);
 
         return response(null, 204);
